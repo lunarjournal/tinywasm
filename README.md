@@ -1,4 +1,4 @@
-#tinywasm
+# tinywasm
 
 Basic implementation of standalone C web assembly (wasm) module.
 
@@ -7,7 +7,7 @@ Demonstrates:
 * Calling C main from Javascript
 * Parsing variables between Javascript and C functions.
 
-#Info
+# Info
 
 Ensure you have installed the emscripten C compiler (emcc) as per the following [guide](https://emscripten.org/docs/getting_started/downloads.html).
 
