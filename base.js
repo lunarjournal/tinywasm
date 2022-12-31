@@ -66,18 +66,23 @@ function initRoutines(exports) {
     let imports = {};
     imports.env = {};
 
-    // 64KiB VM.
+    // Reserve bytes for malloc
+    imports.env.RES_B = 1024;
+    // Set max stack size
+    imports.env.STACK_MAX = imports.env.RES_B;
+    // 64KiB VM
     imports.env.memory = new WebAssembly.Memory({ initial: 1 });
     imports.env.table = new WebAssembly.Table({ initial: 1, element: 'anyfunc' });
-    imports.env.STACK_MAX = imports.env.memory.buffer.byteLength;
     // Initialize stack pointer.
     imports.env.__stack_pointer = new WebAssembly.Global({value: 'i32', mutable: true},
                                                          imports.env.STACK_MAX);
 
+    // Start growing stack from 0x00000000
+    imports.env.STACKTOP = 0;
     imports.env.DYNAMICTOP_PTR = 0;
 
     // Set memory base.
-    imports.env.__memory_base = 0;
+    imports.env.__memory_base = imports.env.RES_B;
     // Set table base.
     imports.env.__table_base = 0;
 
