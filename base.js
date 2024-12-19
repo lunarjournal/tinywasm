@@ -1,5 +1,5 @@
 /* base.js - tinywasm javascript loader
- * Author: spacehen (Dylan Muller)
+ * Author: (Dylan Muller)
  */
 // Use UintXArray for read/write to memory.
 // Use array view to set VM memory.
