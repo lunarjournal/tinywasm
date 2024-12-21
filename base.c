@@ -1,5 +1,5 @@
 /* base.c - tinywasm C source
- * Author: spacehen (Dylan Muller)
+ * Author: (Dylan Muller)
  */
 
 #include <stdbool.h>
